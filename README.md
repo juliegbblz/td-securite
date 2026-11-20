@@ -66,8 +66,9 @@ Tout le monde voit tous les comptes, et **alice**, une simple cliente, vient de 
 
 ## Partie 1 : Basic Auth sur Spring
 
-1. Ajoutez `org.springframework.boot:spring-boot-starter-security`. Relancez : que renvoie maintenant l'API ?
+1. Ajoutez `org.springframework.boot:spring-boot-starter-security`. Relancez : que renvoie maintenant l'API ? Maintenant l'api renvoie /login et demande de s'authentifier
 2. Déclarez le bean `PasswordEncoder` (BCrypt) : c'est lui qui comparera le mot de passe reçu au hash en base.
+
 3. Écrivez un `UserDetailsService` qui charge l'`Utilisateur` en base par son login.
 4. Écrivez la `SecurityFilterChain` : Basic Auth, sans session (`STATELESS`), toutes les requêtes `/api/**` authentifiées.
 5. Vérifiez avec `curl -u alice:alice123 localhost:8080/api/me`, puis décodez l'en-tête `Authorization: Basic …` (`echo … | base64 -d`). Est-ce du chiffrement ?
